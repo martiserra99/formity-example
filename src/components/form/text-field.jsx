@@ -4,7 +4,7 @@ import { Text, TextField as RadixTextField } from "@radix-ui/themes";
 
 export default function TextField({ label, defaultValue }) {
   return (
-    <label className={styles.label}>
+    <Text as="label" className={styles.label}>
       <Text as="div" size="2" mb="1" weight="bold">
         {label}
       </Text>
@@ -13,6 +13,6 @@ export default function TextField({ label, defaultValue }) {
         variant="surface"
         defaultValue={defaultValue}
       />
-    </label>
+    </Text>
   );
 }

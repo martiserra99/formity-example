@@ -5,7 +5,7 @@ import { Text, Select as RadixSelect } from "@radix-ui/themes";
 
 export default function Select({ label, type, list }) {
   return (
-    <label className={styles.select}>
+    <Text as="label" className={styles.select}>
       <Text as="div" size="2" mb="1" weight="bold">
         {label}
       </Text>
@@ -15,7 +15,7 @@ export default function Select({ label, type, list }) {
           {type === "groups" ? renderGroups(list) : renderItems(list)}
         </RadixSelect.Content>
       </RadixSelect.Root>
-    </label>
+    </Text>
   );
 }
 
