@@ -8,7 +8,7 @@ import Heading from "./components/typography/heading";
 import Text from "./components/typography/text";
 import TextField from "./components/form/text-field";
 import TextArea from "./components/form/text-area";
-import Select from "./components/form/select";
+import Listbox from "./components/form/listbox";
 import RadioGroup from "./components/form/radio-group";
 import CheckboxGroup from "./components/form/checkbox-group";
 import Slider from "./components/form/slider";
@@ -48,7 +48,7 @@ function App() {
                 name="message"
                 placeholder="Enter a message"
               />
-              <Select
+              <Listbox
                 label="Sport"
                 name="sport"
                 placeholder="Select a sport"
