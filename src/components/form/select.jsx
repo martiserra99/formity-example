@@ -1,9 +1,9 @@
-import styles from "./listbox.module.css";
+import styles from "./select.module.css";
 
 import { Controller, useFormContext } from "react-hook-form";
-import { Text, Select } from "@radix-ui/themes";
+import { Text, Select as RadixSelect } from "@radix-ui/themes";
 
-export default function Listbox({ label, name, list }) {
+export default function Select({ label, name, list }) {
   const { control } = useFormContext();
   return (
     <Controller
@@ -14,28 +14,28 @@ export default function Listbox({ label, name, list }) {
           <Text as="div" size="2" mb="1" weight="bold">
             {label}
           </Text>
-          <Select.Root
+          <RadixSelect.Root
             value={field.value}
             onValueChange={(value) => field.onChange(value)}
           >
-            <Select.Trigger
+            <RadixSelect.Trigger
               variant="surface"
               className={styles.trigger}
               onBlur={field.onBlur}
               ref={field.ref}
             />
-            <Select.Content position="popper">
+            <RadixSelect.Content position="popper">
               {list.map((item) => (
-                <Select.Item
+                <RadixSelect.Item
                   key={item.value}
                   value={item.value}
                   disabled={item.disabled}
                 >
                   {item.label}
-                </Select.Item>
+                </RadixSelect.Item>
               ))}
-            </Select.Content>
-          </Select.Root>
+            </RadixSelect.Content>
+          </RadixSelect.Root>
         </Text>
       )}
     />
