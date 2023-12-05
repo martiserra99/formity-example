@@ -11,7 +11,8 @@ export default function Range({
   step = 1,
   minStepsBetweenThumbs = 1,
 }) {
-  const { control } = useFormContext();
+  const { control, formState } = useFormContext();
+  const error = formState.errors[name];
   return (
     <Controller
       control={control}
@@ -19,7 +20,13 @@ export default function Range({
       render={({ field }) => (
         <Text as="label" className={styles.label}>
           <Flex justify="between">
-            <Text as="div" size="2" mb="1" weight="bold">
+            <Text
+              as="div"
+              size="2"
+              mb="1"
+              weight="bold"
+              {...(error && { color: "red" })}
+            >
               {label}
             </Text>
             <Text size="2">{field.value.join(" - ")}</Text>
@@ -35,7 +42,13 @@ export default function Range({
             max={max}
             step={step}
             minStepsBetweenThumbs={minStepsBetweenThumbs}
+            {...(error && { color: "red" })}
           />
+          {error && (
+            <Text as="p" size="2" color="red" mt="1">
+              {error.message}
+            </Text>
+          )}
         </Text>
       )}
     />

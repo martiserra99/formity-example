@@ -4,14 +4,21 @@ import { Controller, useFormContext } from "react-hook-form";
 import { Flex, Text, Checkbox as RadixCheckbox } from "@radix-ui/themes";
 
 export default function CheckboxGroup({ label, name, list }) {
-  const { control } = useFormContext();
+  const { control, formState } = useFormContext();
+  const error = formState.errors[name];
   return (
     <Controller
       control={control}
       name={name}
       render={({ field }) => (
         <Text as="label" className={styles.label}>
-          <Text as="div" size="2" mb="1" weight="bold">
+          <Text
+            as="div"
+            size="2"
+            mb="1"
+            weight="bold"
+            {...(error && { color: "red" })}
+          >
             {label}
           </Text>
           <Flex direction="column" gap="1">
@@ -35,6 +42,7 @@ export default function CheckboxGroup({ label, name, list }) {
                       }}
                       onBlur={field.onBlur}
                       ref={field.ref}
+                      {...(error && { color: "red" })}
                     />
                     {item.label}
                   </Flex>
@@ -42,6 +50,11 @@ export default function CheckboxGroup({ label, name, list }) {
               );
             })}
           </Flex>
+          {error && (
+            <Text as="p" size="2" color="red" mt="1">
+              {error.message}
+            </Text>
+          )}
         </Text>
       )}
     />
