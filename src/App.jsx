@@ -7,12 +7,14 @@ import Card from "./components/card";
 import Heading from "./components/typography/heading";
 import Text from "./components/typography/text";
 import TextField from "./components/form/text-field";
+import TextArea from "./components/form/text-area";
 import Button from "./components/button";
 
 function App() {
   const form = useForm({
     defaultValues: {
       name: "John Doe",
+      message: "Hello, world!",
     },
   });
 
@@ -31,6 +33,7 @@ function App() {
             </Box>
             <Flex direction="column" gap="4">
               <TextField label="Name" name="name" />
+              <TextArea label="Message" name="message" />
               <Button>Click me</Button>
             </Flex>
           </form>
