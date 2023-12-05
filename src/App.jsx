@@ -189,7 +189,9 @@ const form = [
         { variables: { sport: { $arrayElemAt: ["$sports", "$i"] } } },
         {
           variables: {
-            question: { $getField: { field: "$sport", input: "$questions" } },
+            question: {
+              $getField: { field: "$sport", input: "$questions" },
+            },
           },
         },
         {
