@@ -22,7 +22,7 @@ function App() {
       sport: "option-1",
       gender: "man",
       hobbies: ["reading", "coding"],
-      rating: [50],
+      rating: 30,
     },
   });
 
@@ -73,7 +73,7 @@ function App() {
                   { label: "Coding", value: "coding" },
                 ]}
               />
-              <Slider label="Rating" name="rating" />
+              <Slider label="Rating" name="rating" min={25} max={50} step={5} />
               <Button>Click me</Button>
             </Flex>
           </form>
