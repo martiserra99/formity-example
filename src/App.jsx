@@ -1,8 +1,9 @@
+import { useState } from "react";
+
 import { Formity } from "formity";
 
 import Center from "./components/center";
 import Card from "./components/card";
-import { useState } from "react";
 
 const form = [
   {
@@ -72,6 +73,7 @@ const form = [
               },
             ],
             buttons: [
+              { Back: { children: "Back" } },
               {
                 Button: {
                   type: "submit",
@@ -112,6 +114,7 @@ const form = [
                     },
                   ],
                   buttons: [
+                    { Back: { children: "Back" } },
                     {
                       Button: {
                         type: "submit",
@@ -165,6 +168,7 @@ const form = [
               },
             ],
             buttons: [
+              { Back: { children: "Back" } },
               {
                 Button: {
                   type: "submit",
@@ -217,6 +221,7 @@ const form = [
                     },
                   ],
                   buttons: [
+                    { Back: { children: "Back" } },
                     {
                       Button: {
                         type: "submit",

@@ -5,7 +5,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./main.css";
 
-import { Theme } from "@radix-ui/themes";
+import { Theme, Button } from "@radix-ui/themes";
 
 import { FormityProvider } from "formity";
 
@@ -17,7 +17,7 @@ import RadioGroup from "./components/form/radio-group";
 import CheckboxGroup from "./components/form/checkbox-group";
 import Slider from "./components/form/slider";
 import Range from "./components/form/range";
-import Button from "./components/button";
+import Back from "./components/back";
 
 const components = {
   LayoutForm,
@@ -29,6 +29,7 @@ const components = {
   Slider,
   Range,
   Button,
+  Back,
 };
 
 ReactDOM.createRoot(document.getElementById("root")).render(

@@ -14,7 +14,7 @@ export default function LayoutForm({ heading, text, fields, buttons }) {
       <Flex direction="column" gap="4">
         {fields}
       </Flex>
-      <Grid columns={buttons.length} gap="4">
+      <Grid columns={`${buttons.length}`} gap="4">
         {buttons}
       </Grid>
     </Flex>
