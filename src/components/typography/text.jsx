@@ -2,7 +2,7 @@ import { Text as RadixText } from "@radix-ui/themes";
 
 export default function Text({ children, ...props }) {
   return (
-    <RadixText as="p" size="3" {...props}>
+    <RadixText as="p" size="3" trim="both" {...props}>
       {children}
     </RadixText>
   );

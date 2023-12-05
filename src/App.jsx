@@ -1,6 +1,6 @@
 import { FormProvider, useForm } from "react-hook-form";
 
-import { Box, Flex } from "@radix-ui/themes";
+import { Flex } from "@radix-ui/themes";
 
 import Center from "./components/center";
 import Card from "./components/card";
@@ -37,11 +37,11 @@ function App() {
       <Card>
         <FormProvider {...form}>
           <form onSubmit={form.handleSubmit(handleSubmit)}>
-            <Box mb="4">
+            <Flex direction="column" gap="3" mb="5">
               <Heading>Hello, world!</Heading>
               <Text>This is a card.</Text>
-            </Box>
-            <Flex direction="column" gap="4">
+            </Flex>
+            <Flex direction="column" gap="4" mb="5">
               <TextField label="Name" name="name" placeholder="Enter a name" />
               <TextArea
                 label="Message"
@@ -77,8 +77,8 @@ function App() {
               />
               <Slider label="Rating" name="rating" min={25} max={50} step={5} />
               <Range label="Ages" name="ages" min={25} max={50} step={5} />
-              <Button>Click me</Button>
             </Flex>
+            <Button>Click me</Button>
           </form>
         </FormProvider>
       </Card>
