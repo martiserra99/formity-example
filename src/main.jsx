@@ -7,10 +7,14 @@ import "./main.css";
 
 import { Theme } from "@radix-ui/themes";
 
+import { FormityProvider } from "formity";
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Theme>
-      <App />
+      <FormityProvider>
+        <App />
+      </FormityProvider>
     </Theme>
   </React.StrictMode>
 );

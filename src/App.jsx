@@ -14,6 +14,7 @@ import CheckboxGroup from "./components/form/checkbox-group";
 import Slider from "./components/form/slider";
 import Range from "./components/form/range";
 import Button from "./components/button";
+import LayoutForm from "./components/layout-form";
 
 function App() {
   const form = useForm({
@@ -37,65 +38,12 @@ function App() {
       <Card>
         <FormProvider {...form}>
           <form onSubmit={form.handleSubmit(handleSubmit)}>
-            <Flex direction="column" gap="5">
-              <Flex direction="column" gap="4">
-                <Heading>Hello, world!</Heading>
-                <Text>This is a card.</Text>
-              </Flex>
-              <Flex direction="column" gap="4">
-                <TextField
-                  label="Name"
-                  name="name"
-                  placeholder="Enter a name"
-                />
-                <TextArea
-                  label="Message"
-                  name="message"
-                  placeholder="Enter a message"
-                />
-                <Select
-                  label="Sport"
-                  name="sport"
-                  placeholder="Select a sport"
-                  list={[
-                    { label: "Option 1", value: "option-1" },
-                    { label: "Option 2", value: "option-2" },
-                    { label: "Option 3", value: "option-3", disabled: true },
-                  ]}
-                />
-                <RadioGroup
-                  label="Gender"
-                  name="gender"
-                  list={[
-                    { label: "Man", value: "man" },
-                    { label: "Woman", value: "woman" },
-                  ]}
-                />
-                <Slider
-                  label="Rating"
-                  name="rating"
-                  min={25}
-                  max={50}
-                  step={5}
-                />
-                <Range label="Ages" name="ages" min={25} max={50} step={5} />
-                <CheckboxGroup
-                  label="Hobbies"
-                  name="hobbies"
-                  list={[
-                    { label: "Reading", value: "reading" },
-                    { label: "Writing", value: "writing" },
-                    { label: "Coding", value: "coding" },
-                  ]}
-                />
-              </Flex>
-              <Grid columns="2" gap="4">
-                <Button type="button" variant="outline">
-                  Back
-                </Button>
-                <Button>Next</Button>
-              </Grid>
-            </Flex>
+            <LayoutForm
+              heading="Hello"
+              text="Goodbye"
+              fields={[<TextField key={0} name="name" label="Name" />]}
+              buttons={[<Button key={0}>Next</Button>]}
+            />
           </form>
         </FormProvider>
       </Card>
