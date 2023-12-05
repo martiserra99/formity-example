@@ -8,6 +8,7 @@ import Heading from "./components/typography/heading";
 import Text from "./components/typography/text";
 import TextField from "./components/form/text-field";
 import TextArea from "./components/form/text-area";
+import Select from "./components/form/select";
 import Button from "./components/button";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
     defaultValues: {
       name: "John Doe",
       message: "Hello, world!",
+      sport: "option-1",
     },
   });
 
@@ -32,8 +34,22 @@ function App() {
               <Text>This is a card.</Text>
             </Box>
             <Flex direction="column" gap="4">
-              <TextField label="Name" name="name" />
-              <TextArea label="Message" name="message" />
+              <TextField label="Name" name="name" placeholder="Enter a name" />
+              <TextArea
+                label="Message"
+                name="message"
+                placeholder="Enter a message"
+              />
+              <Select
+                label="Sport"
+                name="sport"
+                placeholder="Select a sport"
+                list={[
+                  { label: "Option 1", value: "option-1" },
+                  { label: "Option 2", value: "option-2" },
+                  { label: "Option 3", value: "option-3" },
+                ]}
+              />
               <Button>Click me</Button>
             </Flex>
           </form>
