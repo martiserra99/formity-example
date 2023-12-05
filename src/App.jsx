@@ -11,6 +11,7 @@ import TextArea from "./components/form/text-area";
 import Select from "./components/form/select";
 import RadioGroup from "./components/form/radio-group";
 import Button from "./components/button";
+import CheckboxGroup from "./components/form/checkbox-group";
 
 function App() {
   const form = useForm({
@@ -19,6 +20,7 @@ function App() {
       message: "Hello, world!",
       sport: "option-1",
       gender: "man",
+      hobbies: ["reading", "coding"],
     },
   });
 
@@ -58,6 +60,15 @@ function App() {
                 list={[
                   { label: "Man", value: "man" },
                   { label: "Woman", value: "woman" },
+                ]}
+              />
+              <CheckboxGroup
+                label="Hobbies"
+                name="hobbies"
+                list={[
+                  { label: "Reading", value: "reading" },
+                  { label: "Writing", value: "writing" },
+                  { label: "Coding", value: "coding" },
                 ]}
               />
               <Button>Click me</Button>
