@@ -7,6 +7,7 @@ import Text from "./components/typography/text";
 import TextField from "./components/form/text-field";
 import TextArea from "./components/form/text-area";
 import Select from "./components/form/select";
+import RadioGroup from "./components/form/radio-group";
 import Button from "./components/button";
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
               { value: "apple", label: "Apple" },
               { value: "orange", label: "Orange", disabled: true },
             ]}
+            defaultValue="apple"
           />
           <Select
             label="Fruit"
@@ -47,6 +49,15 @@ function App() {
                 ],
               },
             ]}
+            defaultValue="orange"
+          />
+          <RadioGroup
+            label="Toggle"
+            list={[
+              { value: "man", label: "Man" },
+              { value: "woman", label: "Woman" },
+            ]}
+            defaultValue="man"
           />
           <Button>Click me</Button>
         </Flex>
