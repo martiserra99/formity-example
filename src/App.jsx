@@ -8,6 +8,7 @@ import TextField from "./components/form/text-field";
 import TextArea from "./components/form/text-area";
 import Select from "./components/form/select";
 import RadioGroup from "./components/form/radio-group";
+import CheckboxGroup from "./components/form/checkbox-group";
 import Button from "./components/button";
 
 function App() {
@@ -58,6 +59,13 @@ function App() {
               { value: "woman", label: "Woman" },
             ]}
             defaultValue="man"
+          />
+          <CheckboxGroup
+            label="Fruits"
+            list={[
+              { value: "apple", label: "Apple" },
+              { value: "orange", label: "Orange" },
+            ]}
           />
           <Button>Click me</Button>
         </Flex>
