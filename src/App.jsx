@@ -135,6 +135,119 @@ const form = [
         { value: "basketball", label: "Basketball" },
         { value: "tennis", label: "Tennis" },
       ],
+      questions: {
+        football: "What days do you play football?",
+        basketball: "What days do you play basketball?",
+        tennis: "What days do you play tennis?",
+      },
+    },
+  },
+  {
+    form: {
+      defaultValues: {
+        sports: [],
+      },
+      resolver: {
+        sports: [[{ _$ne: [{ _$size: "_$sports" }, 0] }, "At least one sport"]],
+      },
+      render: [
+        {
+          LayoutForm: {
+            heading: "What sports do you like?",
+            text: "Select your sports",
+            fields: [
+              {
+                CheckboxGroup: {
+                  name: "sports",
+                  label: "Sports",
+                  list: "$sportsList",
+                },
+              },
+            ],
+            buttons: [
+              {
+                Button: {
+                  type: "submit",
+                  children: "Next",
+                },
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+  { variables: { i: 0 } },
+  {
+    loop: {
+      while: { $lt: ["$i", { $size: "$sports" }] },
+      do: [
+        { variables: { sport: { $arrayElemAt: ["$sports", "$i"] } } },
+        {
+          variables: {
+            question: { $getField: { field: "$sport", input: "$questions" } },
+          },
+        },
+        {
+          form: {
+            defaultValues: { days: [] },
+            resolver: {
+              days: [[{ _$ne: [{ _$size: "_$days" }, 0] }, "At least one day"]],
+            },
+            render: [
+              {
+                LayoutForm: {
+                  heading: "$question",
+                  text: "Select the days",
+                  fields: [
+                    {
+                      CheckboxGroup: {
+                        name: "days",
+                        label: "Days",
+                        list: [
+                          { value: "monday", label: "Monday" },
+                          { value: "tuesday", label: "Tuesday" },
+                          { value: "wednesday", label: "Wednesday" },
+                          { value: "thursday", label: "Thursday" },
+                          { value: "friday", label: "Friday" },
+                          { value: "saturday", label: "Saturday" },
+                          { value: "sunday", label: "Sunday" },
+                        ],
+                      },
+                    },
+                  ],
+                  buttons: [
+                    {
+                      Button: {
+                        type: "submit",
+                        children: "Next",
+                      },
+                    },
+                  ],
+                },
+              },
+            ],
+          },
+        },
+        {
+          variables: {
+            sports: {
+              $map: {
+                input: "$sports",
+                as: "sport",
+                in: {
+                  $cond: {
+                    if: { $eq: ["$$sport", "$sport"] },
+                    then: { sport: "$$sport", days: "$days" },
+                    else: "$$sport",
+                  },
+                },
+              },
+            },
+            i: { $add: ["$i", 1] },
+          },
+        },
+      ],
     },
   },
   {
@@ -142,6 +255,7 @@ const form = [
       name: { $concat: ["$name", " ", "$surname"] },
       age: "$age",
       drivingLicense: "$drivingLicense",
+      sports: "$sports",
     },
   },
 ];
