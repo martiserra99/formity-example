@@ -20,6 +20,8 @@ export default function CheckboxGroup({ label, name, list }) {
                 <Text as="label" key={item.value} size="2">
                   <Flex gap="2">
                     <RadixCheckbox
+                      size="2"
+                      variant="surface"
                       value={item.value}
                       checked={field.value.includes(item.value)}
                       onCheckedChange={() => {

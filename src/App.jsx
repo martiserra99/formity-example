@@ -10,8 +10,9 @@ import TextField from "./components/form/text-field";
 import TextArea from "./components/form/text-area";
 import Select from "./components/form/select";
 import RadioGroup from "./components/form/radio-group";
-import Button from "./components/button";
 import CheckboxGroup from "./components/form/checkbox-group";
+import Slider from "./components/form/slider";
+import Button from "./components/button";
 
 function App() {
   const form = useForm({
@@ -21,6 +22,7 @@ function App() {
       sport: "option-1",
       gender: "man",
       hobbies: ["reading", "coding"],
+      rating: [50],
     },
   });
 
@@ -71,6 +73,7 @@ function App() {
                   { label: "Coding", value: "coding" },
                 ]}
               />
+              <Slider label="Rating" name="rating" />
               <Button>Click me</Button>
             </Flex>
           </form>

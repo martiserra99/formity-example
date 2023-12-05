@@ -16,6 +16,8 @@ export default function RadioGroup({ label, name, list }) {
         name={name}
         render={({ field }) => (
           <RadixRadioGroup.Root
+            size="2"
+            variant="surface"
             value={field.value}
             onBlur={field.onBlur}
             onValueChange={(value) => field.onChange(value)}
