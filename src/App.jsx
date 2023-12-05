@@ -12,6 +12,7 @@ import Select from "./components/form/select";
 import RadioGroup from "./components/form/radio-group";
 import CheckboxGroup from "./components/form/checkbox-group";
 import Slider from "./components/form/slider";
+import Range from "./components/form/range";
 import Button from "./components/button";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
       gender: "man",
       hobbies: ["reading", "coding"],
       rating: 30,
+      ages: [30, 40],
     },
   });
 
@@ -74,6 +76,7 @@ function App() {
                 ]}
               />
               <Slider label="Rating" name="rating" min={25} max={50} step={5} />
+              <Range label="Ages" name="ages" min={25} max={50} step={5} />
               <Button>Click me</Button>
             </Flex>
           </form>
