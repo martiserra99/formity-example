@@ -9,6 +9,7 @@ import Text from "./components/typography/text";
 import TextField from "./components/form/text-field";
 import TextArea from "./components/form/text-area";
 import Select from "./components/form/select";
+import RadioGroup from "./components/form/radio-group";
 import Button from "./components/button";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       name: "John Doe",
       message: "Hello, world!",
       sport: "option-1",
+      gender: "man",
     },
   });
 
@@ -47,7 +49,15 @@ function App() {
                 list={[
                   { label: "Option 1", value: "option-1" },
                   { label: "Option 2", value: "option-2" },
-                  { label: "Option 3", value: "option-3" },
+                  { label: "Option 3", value: "option-3", disabled: true },
+                ]}
+              />
+              <RadioGroup
+                label="Gender"
+                name="gender"
+                list={[
+                  { label: "Man", value: "man" },
+                  { label: "Woman", value: "woman" },
                 ]}
               />
               <Button>Click me</Button>

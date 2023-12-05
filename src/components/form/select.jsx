@@ -18,7 +18,12 @@ export default function Select({ label, name, list }) {
             value={field.value}
             onValueChange={(value) => field.onChange(value)}
           >
-            <RadixSelect.Trigger variant="surface" className={styles.trigger} />
+            <RadixSelect.Trigger
+              variant="surface"
+              className={styles.trigger}
+              onBlur={field.onBlur}
+              ref={field.ref}
+            />
             <RadixSelect.Content position="popper">
               {list.map((item) => (
                 <RadixSelect.Item
