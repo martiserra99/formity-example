@@ -10,8 +10,6 @@ import { Theme } from "@radix-ui/themes";
 import { FormityProvider } from "formity";
 
 import LayoutForm from "./components/layout-form";
-import Heading from "./components/typography/heading";
-import Text from "./components/typography/text";
 import TextField from "./components/form/text-field";
 import TextArea from "./components/form/text-area";
 import Select from "./components/form/select";
@@ -23,8 +21,6 @@ import Button from "./components/button";
 
 const components = {
   LayoutForm,
-  Heading,
-  Text,
   TextField,
   TextArea,
   Select,
@@ -37,7 +33,7 @@ const components = {
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Theme>
+    <Theme panelBackground="translucent">
       <FormityProvider components={components}>
         <App />
       </FormityProvider>

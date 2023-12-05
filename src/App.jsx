@@ -2,6 +2,7 @@ import { Formity } from "formity";
 
 import Center from "./components/center";
 import Card from "./components/card";
+import { Box } from "@radix-ui/themes";
 
 const form = [
   {
@@ -17,8 +18,8 @@ const form = [
       render: [
         {
           LayoutForm: {
-            heading: "Formity",
-            text: "A React form library",
+            heading: "What is your name?",
+            text: "Fill in your name and surname",
             fields: [
               {
                 TextField: {
@@ -39,7 +40,7 @@ const form = [
               {
                 Button: {
                   type: "submit",
-                  children: "Submit",
+                  children: "Next",
                 },
               },
             ],
@@ -48,7 +49,101 @@ const form = [
       ],
     },
   },
-  { return: { name: { $concat: ["$name", " ", "$surname"] } } },
+  {
+    form: {
+      defaultValues: {
+        age: 25,
+      },
+      resolver: {},
+      render: [
+        {
+          LayoutForm: {
+            heading: "What is your age?",
+            text: "Select your age",
+            fields: [
+              {
+                Slider: {
+                  name: "age",
+                  label: "Age",
+                  min: 1,
+                  max: 100,
+                  step: 1,
+                },
+              },
+            ],
+            buttons: [
+              {
+                Button: {
+                  type: "submit",
+                  children: "Next",
+                },
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+  {
+    cond: {
+      if: { $gte: ["$age", 18] },
+      then: [
+        {
+          form: {
+            defaultValues: {
+              drivingLicense: false,
+            },
+            resolver: {},
+            render: [
+              {
+                LayoutForm: {
+                  heading: "Do you have a driving license?",
+                  text: "Select your answer",
+                  fields: [
+                    {
+                      RadioGroup: {
+                        name: "drivingLicense",
+                        label: "Driving license",
+                        list: [
+                          { value: false, label: "No" },
+                          { value: true, label: "Yes" },
+                        ],
+                      },
+                    },
+                  ],
+                  buttons: [
+                    {
+                      Button: {
+                        type: "submit",
+                        children: "Next",
+                      },
+                    },
+                  ],
+                },
+              },
+            ],
+          },
+        },
+      ],
+      else: [{ variables: { drivingLicense: false } }],
+    },
+  },
+  {
+    variables: {
+      sportsList: [
+        { value: "football", label: "Football" },
+        { value: "basketball", label: "Basketball" },
+        { value: "tennis", label: "Tennis" },
+      ],
+    },
+  },
+  {
+    return: {
+      name: { $concat: ["$name", " ", "$surname"] },
+      age: "$age",
+      drivingLicense: "$drivingLicense",
+    },
+  },
 ];
 
 function App() {
@@ -56,11 +151,13 @@ function App() {
     console.log(data);
   }
   return (
-    <Center>
-      <Card>
-        <Formity json={form} onSubmit={handleSubmit} />
-      </Card>
-    </Center>
+    <Box>
+      <Center>
+        <Card>
+          <Formity json={form} onSubmit={handleSubmit} />
+        </Card>
+      </Center>
+    </Box>
   );
 }
 

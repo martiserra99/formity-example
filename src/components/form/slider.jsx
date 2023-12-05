@@ -34,7 +34,6 @@ export default function Slider({ label, name, min = 0, max = 100, step = 1 }) {
             min={min}
             max={max}
             step={step}
-            {...(error && { color: "red" })}
           />
           {error && (
             <Text as="p" size="2" color="red" mt="1">

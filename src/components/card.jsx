@@ -4,7 +4,7 @@ import { Card as RadixCard } from "@radix-ui/themes";
 
 export default function Card({ children }) {
   return (
-    <RadixCard size="3" className={styles.card}>
+    <RadixCard size="3" variant="surface" className={styles.card}>
       {children}
     </RadixCard>
   );

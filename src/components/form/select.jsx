@@ -30,7 +30,6 @@ export default function Select({ label, name, list }) {
               className={styles.trigger}
               onBlur={field.onBlur}
               ref={field.ref}
-              {...(error && { color: "red" })}
             />
             <RadixSelect.Content position="popper">
               {list.map((item) => (
