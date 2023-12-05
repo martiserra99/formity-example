@@ -1,6 +1,6 @@
 import { FormProvider, useForm } from "react-hook-form";
 
-import { Flex, Grid, Separator } from "@radix-ui/themes";
+import { Flex, Grid } from "@radix-ui/themes";
 
 import Center from "./components/center";
 import Card from "./components/card";
