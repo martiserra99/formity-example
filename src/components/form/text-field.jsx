@@ -6,7 +6,7 @@ export default function TextField({ label, ...props }) {
       <Text as="div" size="2" mb="1" weight="bold">
         {label}
       </Text>
-      <RadixTextField.Input {...props} />
+      <RadixTextField.Input size="2" variant="surface" {...props} />
     </label>
   );
 }
