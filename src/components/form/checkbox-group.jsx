@@ -1,7 +1,7 @@
 import styles from "./radio-group.module.css";
 
 import { Controller, useFormContext } from "react-hook-form";
-import { Flex, Text, Checkbox as RadixCheckbox } from "@radix-ui/themes";
+import { Flex, Text, Checkbox as RadixCheckbox, Box } from "@radix-ui/themes";
 
 export default function CheckboxGroup({ label, name, list }) {
   const { control, formState } = useFormContext();
@@ -11,12 +11,13 @@ export default function CheckboxGroup({ label, name, list }) {
       control={control}
       name={name}
       render={({ field }) => (
-        <Text as="label" className={styles.label}>
+        <Box>
           <Text
-            as="div"
+            as="label"
             size="2"
             mb="1"
             weight="bold"
+            className={styles.label}
             {...(error && { color: "red" })}
           >
             {label}
@@ -55,7 +56,7 @@ export default function CheckboxGroup({ label, name, list }) {
               {error.message}
             </Text>
           )}
-        </Text>
+        </Box>
       )}
     />
   );

@@ -2,7 +2,12 @@ import styles from "./radio-group.module.css";
 
 import { Controller, useFormContext } from "react-hook-form";
 
-import { Flex, Text, RadioGroup as RadixRadioGroup } from "@radix-ui/themes";
+import {
+  Box,
+  Flex,
+  Text,
+  RadioGroup as RadixRadioGroup,
+} from "@radix-ui/themes";
 
 export default function RadioGroup({ label, name, list }) {
   const { control, formState } = useFormContext();
@@ -12,12 +17,13 @@ export default function RadioGroup({ label, name, list }) {
       control={control}
       name={name}
       render={({ field }) => (
-        <Text as="label" className={styles.label}>
+        <Box>
           <Text
-            as="div"
+            as="label"
             size="2"
             mb="1"
             weight="bold"
+            className={styles.label}
             {...(error && { color: "red" })}
           >
             {label}
@@ -51,7 +57,7 @@ export default function RadioGroup({ label, name, list }) {
               {error.message}
             </Text>
           )}
-        </Text>
+        </Box>
       )}
     />
   );
