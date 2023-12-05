@@ -6,14 +6,14 @@ import { Flex, Text, Checkbox as RadixCheckbox } from "@radix-ui/themes";
 export default function CheckboxGroup({ label, name, list }) {
   const { control } = useFormContext();
   return (
-    <Text as="label" className={styles.label}>
-      <Text as="div" size="2" mb="1" weight="bold">
-        {label}
-      </Text>
-      <Controller
-        control={control}
-        name={name}
-        render={({ field }) => (
+    <Controller
+      control={control}
+      name={name}
+      render={({ field }) => (
+        <Text as="label" className={styles.label}>
+          <Text as="div" size="2" mb="1" weight="bold">
+            {label}
+          </Text>
           <Flex direction="column" gap="1">
             {list.map((item) => {
               return (
@@ -42,8 +42,8 @@ export default function CheckboxGroup({ label, name, list }) {
               );
             })}
           </Flex>
-        )}
-      />
-    </Text>
+        </Text>
+      )}
+    />
   );
 }

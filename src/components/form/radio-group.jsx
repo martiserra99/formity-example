@@ -7,14 +7,14 @@ import { Flex, Text, RadioGroup as RadixRadioGroup } from "@radix-ui/themes";
 export default function RadioGroup({ label, name, list }) {
   const { control } = useFormContext();
   return (
-    <Text as="label" className={styles.label}>
-      <Text as="div" size="2" mb="1" weight="bold">
-        {label}
-      </Text>
-      <Controller
-        control={control}
-        name={name}
-        render={({ field }) => (
+    <Controller
+      control={control}
+      name={name}
+      render={({ field }) => (
+        <Text as="label" className={styles.label}>
+          <Text as="div" size="2" mb="1" weight="bold">
+            {label}
+          </Text>
           <RadixRadioGroup.Root
             size="2"
             variant="surface"
@@ -34,8 +34,8 @@ export default function RadioGroup({ label, name, list }) {
               ))}
             </Flex>
           </RadixRadioGroup.Root>
-        )}
-      />
-    </Text>
+        </Text>
+      )}
+    />
   );
 }
