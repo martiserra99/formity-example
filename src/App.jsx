@@ -2,7 +2,7 @@ import { Formity } from "formity";
 
 import Center from "./components/center";
 import Card from "./components/card";
-import { Box } from "@radix-ui/themes";
+import { useState } from "react";
 
 const form = [
   {
@@ -147,17 +147,22 @@ const form = [
 ];
 
 function App() {
+  const [data, setData] = useState(null);
+
   function handleSubmit(data) {
-    console.log(data);
+    setData(data);
   }
+
   return (
-    <Box>
-      <Center>
-        <Card>
+    <Center>
+      <Card>
+        {data ? (
+          <pre>{JSON.stringify(data, null, 2)}</pre>
+        ) : (
           <Formity json={form} onSubmit={handleSubmit} />
-        </Card>
-      </Center>
-    </Box>
+        )}
+      </Card>
+    </Center>
   );
 }
 
