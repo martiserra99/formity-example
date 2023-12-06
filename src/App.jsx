@@ -19,7 +19,7 @@ const form = [
         ],
         surname: [
           [{ _$ne: ["_$surname", ""] }, "Required"],
-          [{ _$lt: [{ _$strLen: "_$name" }, 20] }, "No more than 20 chars"],
+          [{ _$lt: [{ _$strLen: "_$surname" }, 20] }, "No more than 20 chars"],
         ],
       },
       render: [
