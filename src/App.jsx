@@ -13,8 +13,14 @@ const form = [
         surname: "",
       },
       resolver: {
-        name: [[{ _$ne: ["_$name", ""] }, "Required"]],
-        surname: [[{ _$ne: ["_$surname", ""] }, "Required"]],
+        name: [
+          [{ _$ne: ["_$name", ""] }, "Required"],
+          [{ _$lt: [{ _$strLen: "_$name" }, 20] }, "No more than 20 chars"],
+        ],
+        surname: [
+          [{ _$ne: ["_$surname", ""] }, "Required"],
+          [{ _$lt: [{ _$strLen: "_$name" }, 20] }, "No more than 20 chars"],
+        ],
       },
       render: [
         {
