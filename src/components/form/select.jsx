@@ -3,6 +3,9 @@ import styles from "./select.module.css";
 import { Controller, useFormContext } from "react-hook-form";
 import { Text, Select as RadixSelect } from "@radix-ui/themes";
 
+import Label from "../label";
+import ErrorMessage from "../error-message";
+
 export default function Select({ label, name, list }) {
   const { control, formState } = useFormContext();
   const error = formState.errors[name];
@@ -12,21 +15,14 @@ export default function Select({ label, name, list }) {
       name={name}
       render={({ field }) => (
         <Text as="label" className={styles.select}>
-          <Text
-            as="div"
-            size="2"
-            mb="1"
-            weight="bold"
-            {...(error && { color: "red" })}
-          >
+          <Label as="div" mb="1" error={error}>
             {label}
-          </Text>
+          </Label>
           <RadixSelect.Root
             value={field.value}
             onValueChange={(value) => field.onChange(value)}
           >
             <RadixSelect.Trigger
-              variant="surface"
               className={styles.trigger}
               onBlur={field.onBlur}
               ref={field.ref}
@@ -43,11 +39,7 @@ export default function Select({ label, name, list }) {
               ))}
             </RadixSelect.Content>
           </RadixSelect.Root>
-          {error && (
-            <Text as="p" size="2" color="red" mt="1">
-              {error.message}
-            </Text>
-          )}
+          {error && <ErrorMessage mt="1">{error.message}</ErrorMessage>}
         </Text>
       )}
     />

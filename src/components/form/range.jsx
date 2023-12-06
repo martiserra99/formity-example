@@ -3,6 +3,9 @@ import styles from "./range.module.css";
 import { Controller, useFormContext } from "react-hook-form";
 import { Flex, Text, Slider as RadixSlider } from "@radix-ui/themes";
 
+import Label from "../label";
+import ErrorMessage from "../error-message";
+
 export default function Range({
   label,
   name,
@@ -20,20 +23,12 @@ export default function Range({
       render={({ field }) => (
         <Text as="label" className={styles.label}>
           <Flex justify="between">
-            <Text
-              as="div"
-              size="2"
-              mb="1"
-              weight="bold"
-              {...(error && { color: "red" })}
-            >
+            <Label as="div" mb="1" error={error}>
               {label}
-            </Text>
+            </Label>
             <Text size="2">{field.value.join(" - ")}</Text>
           </Flex>
           <RadixSlider
-            size="2"
-            variant="surface"
             value={field.value}
             onValueChange={(value) => field.onChange(value)}
             onBlur={field.onBlur}
@@ -44,11 +39,7 @@ export default function Range({
             minStepsBetweenThumbs={minStepsBetweenThumbs}
             {...(error && { color: "red" })}
           />
-          {error && (
-            <Text as="p" size="2" color="red" mt="1">
-              {error.message}
-            </Text>
-          )}
+          {error && <ErrorMessage mt="1">{error.message}</ErrorMessage>}
         </Text>
       )}
     />

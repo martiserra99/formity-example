@@ -3,6 +3,9 @@ import styles from "./radio-group.module.css";
 import { Controller, useFormContext } from "react-hook-form";
 import { Flex, Text, Checkbox as RadixCheckbox, Box } from "@radix-ui/themes";
 
+import Label from "../label";
+import ErrorMessage from "../error-message";
+
 export default function CheckboxGroup({ label, name, list }) {
   const { control, formState } = useFormContext();
   const error = formState.errors[name];
@@ -12,16 +15,9 @@ export default function CheckboxGroup({ label, name, list }) {
       name={name}
       render={({ field }) => (
         <Box>
-          <Text
-            as="label"
-            size="2"
-            mb="1"
-            weight="bold"
-            className={styles.label}
-            {...(error && { color: "red" })}
-          >
+          <Label mb="1" className={styles.label} error={error}>
             {label}
-          </Text>
+          </Label>
           <Flex direction="column" gap="1">
             {list.map((item) => {
               return (
@@ -51,11 +47,7 @@ export default function CheckboxGroup({ label, name, list }) {
               );
             })}
           </Flex>
-          {error && (
-            <Text as="p" size="2" color="red" mt="1">
-              {error.message}
-            </Text>
-          )}
+          {error && <ErrorMessage mt="1">{error.message}</ErrorMessage>}
         </Box>
       )}
     />
