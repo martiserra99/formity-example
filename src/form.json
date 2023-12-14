@@ -8,14 +8,11 @@
       "resolver": {
         "name": [
           [{ "_$ne": ["_$name", ""] }, "Required"],
-          [{ "_$lt": [{ "_$strLen": "_$name" }, 20] }, "No more than 20 chars"]
+          [{ "_$lt": [{ "_$strLen": "_$name" }, 20] }, "Max. 20 characters"]
         ],
         "surname": [
           [{ "_$ne": ["_$surname", ""] }, "Required"],
-          [
-            { "_$lt": [{ "_$strLen": "_$surname" }, 20] },
-            "No more than 20 chars"
-          ]
+          [{ "_$lt": [{ "_$strLen": "_$surname" }, 20] }, "Max. 20 characters"]
         ]
       },
       "render": [

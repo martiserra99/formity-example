@@ -8,7 +8,7 @@ import Result from "./components/result";
 
 import form from "./form.json";
 
-function App() {
+export default function App() {
   const [result, setResult] = useState(null);
 
   function handleSubmit(result) {
@@ -27,5 +27,3 @@ function App() {
     </Center>
   );
 }
-
-export default App;
