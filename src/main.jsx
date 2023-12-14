@@ -34,7 +34,7 @@ const components = {
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Theme panelBackground="translucent">
+    <Theme appearance="dark" panelBackground="translucent">
       <FormityProvider components={components}>
         <App />
       </FormityProvider>
