@@ -15,14 +15,20 @@ export default function App() {
     setResult(result);
   }
 
+  if (result) {
+    return (
+      <Center>
+        <Card>
+          <Result result={result} />
+        </Card>
+      </Center>
+    );
+  }
+
   return (
     <Center>
       <Card>
-        {result ? (
-          <Result result={result} />
-        ) : (
-          <Formity json={form} onSubmit={handleSubmit} />
-        )}
+        <Formity json={form} onSubmit={handleSubmit} />
       </Card>
     </Center>
   );
