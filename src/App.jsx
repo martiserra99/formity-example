@@ -28,7 +28,7 @@ export default function App() {
   return (
     <Center>
       <Card>
-        <Formity json={form} onSubmit={handleSubmit} />
+        <Formity form={form} onSubmit={handleSubmit} />
       </Card>
     </Center>
   );
