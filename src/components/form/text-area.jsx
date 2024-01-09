@@ -16,6 +16,7 @@ export default function TextArea({ label, name, placeholder }) {
         {label}
       </Label>
       <RadixTextArea
+        autoComplete="off"
         placeholder={placeholder}
         {...register(name)}
         {...(error && { color: "red" })}
