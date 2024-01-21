@@ -10,6 +10,6 @@ html {
   padding: 0;
 }
 
-body {
-  background-image: url("/background.svg");
+.dark {
+  background-color: black;
 }

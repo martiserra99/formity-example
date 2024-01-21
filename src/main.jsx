@@ -4,8 +4,9 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./main.css";
+import "./theme-config.css";
 
-import { Theme, Button } from "@radix-ui/themes";
+import { Theme } from "@radix-ui/themes";
 
 import { FormityProvider } from "formity";
 
@@ -18,6 +19,7 @@ import CheckboxGroup from "./components/form/checkbox-group";
 import Slider from "./components/form/slider";
 import Range from "./components/form/range";
 import Back from "./components/back";
+import Button from "./components/button";
 
 const components = {
   LayoutForm,
@@ -28,8 +30,8 @@ const components = {
   CheckboxGroup,
   Slider,
   Range,
-  Button,
   Back,
+  Button,
 };
 
 ReactDOM.createRoot(document.getElementById("root")).render(

@@ -92,7 +92,7 @@
         {
           "form": {
             "defaultValues": {
-              "drivingLicense": false
+              "drive": false
             },
             "resolver": {},
             "render": [
@@ -103,7 +103,7 @@
                   "fields": [
                     {
                       "RadioGroup": {
-                        "name": "drivingLicense",
+                        "name": "drive",
                         "label": "Driving license",
                         "list": [
                           { "value": false, "label": "No" },
@@ -127,7 +127,7 @@
           }
         }
       ],
-      "else": [{ "variables": { "drivingLicense": false } }]
+      "else": [{ "variables": { "drive": false } }]
     }
   },
   {
@@ -138,9 +138,9 @@
         { "value": "tennis", "label": "Tennis" }
       ],
       "questions": {
-        "football": "What days do you play football?",
-        "basketball": "What days do you play basketball?",
-        "tennis": "What days do you play tennis?"
+        "football": "When do you play football?",
+        "basketball": "When do you play basketball?",
+        "tennis": "When do you play tennis?"
       }
     }
   },
@@ -264,7 +264,7 @@
     "return": {
       "name": { "$concat": ["$name", " ", "$surname"] },
       "age": "$age",
-      "drivingLicense": "$drivingLicense",
+      "drive": "$drive",
       "sports": "$sports"
     }
   }

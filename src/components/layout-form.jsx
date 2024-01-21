@@ -1,22 +1,20 @@
-import { Grid, Flex, Heading, Text } from "@radix-ui/themes";
+import { Box, Grid, Flex, Heading, Separator } from "@radix-ui/themes";
 
-export default function LayoutForm({ heading, text, fields, buttons }) {
+import styles from "./layout-form.module.css";
+
+export default function LayoutForm({ heading, fields, buttons }) {
   return (
-    <Flex direction="column" gap="5">
-      <Flex direction="column" gap="4">
-        <Heading size="4" trim="both">
-          {heading}
-        </Heading>
-        <Text size="2" color="gray" trim="both">
-          {text}
-        </Text>
-      </Flex>
-      <Flex direction="column" gap="4">
+    <Box>
+      <Heading size="3" trim="both">
+        {heading}
+      </Heading>
+      <Separator size="4" className={styles.separator} />
+      <Flex direction="column" gap="4" className={styles.fields}>
         {fields}
       </Flex>
       <Grid columns={`${buttons.length}`} gap="4">
         {buttons}
       </Grid>
-    </Flex>
+    </Box>
   );
 }

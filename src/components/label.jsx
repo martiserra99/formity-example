@@ -5,7 +5,7 @@ export default function Label({ children, error, ...props }) {
     <Text
       as="label"
       size="2"
-      weight="bold"
+      weight="medium"
       {...(error && { color: "red" })}
       {...props}
     >
