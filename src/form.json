@@ -248,7 +248,7 @@
                 "in": {
                   "$cond": {
                     "if": { "$eq": ["$$sport", "$sport"] },
-                    "then": { "sport": "$$sport", "days": "$days" },
+                    "then": ["$$sport", "$days"],
                     "else": "$$sport"
                   }
                 }
