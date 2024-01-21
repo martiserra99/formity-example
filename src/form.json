@@ -92,7 +92,7 @@
         {
           "form": {
             "defaultValues": {
-              "drive": false
+              "drivingLicense": false
             },
             "resolver": {},
             "render": [
@@ -103,7 +103,7 @@
                   "fields": [
                     {
                       "RadioGroup": {
-                        "name": "drive",
+                        "name": "drivingLicense",
                         "label": "Driving license",
                         "list": [
                           { "value": false, "label": "No" },
@@ -127,7 +127,7 @@
           }
         }
       ],
-      "else": [{ "variables": { "drive": false } }]
+      "else": [{ "variables": { "drivingLicense": false } }]
     }
   },
   {
@@ -264,7 +264,7 @@
     "return": {
       "name": { "$concat": ["$name", " ", "$surname"] },
       "age": "$age",
-      "drive": "$drive",
+      "drivingLicense": "$drivingLicense",
       "sports": "$sports"
     }
   }
