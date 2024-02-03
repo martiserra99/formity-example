@@ -16,7 +16,7 @@ export default function TextField({ label, name, placeholder }) {
         {label}
       </Label>
       <RadixTextField.Input
-        autoComplete="off"
+        autoComplete="no"
         placeholder={placeholder}
         {...register(name)}
         {...(error && { color: "red" })}
