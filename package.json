@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@radix-ui/themes": "^2.0.1",
-    "formity": "^2.0.7",
+    "formity": "^2.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.48.2"
